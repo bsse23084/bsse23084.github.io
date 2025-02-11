@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxGraphModel dx="1038" dy="611" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+  <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+    
+    <mxCell id="2" value="User" style="swimlane" vertex="1" parent="1">
+      <mxGeometry x="100" y="100" width="160" height="120" as="geometry" />
+    </mxCell>
+    <mxCell id="3" value="+ userID: String&#xa;+ name: String&#xa;+ email: String&#xa;+ password: String" style="text" vertex="1" parent="2">
+      <mxGeometry width="160" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="4" value="+ login()&#xa;+ logout()" style="text" vertex="1" parent="2">
+      <mxGeometry y="60" width="160" height="60" as="geometry" />
+    </mxCell>
+    
+    <mxCell id="5" value="Librarian" style="swimlane" vertex="1" parent="1">
+      <mxGeometry x="300" y="100" width="160" height="120" as="geometry" />
+    </mxCell>
+    <mxCell id="6" value="+ employeeID: String" style="text" vertex="1" parent="5">
+      <mxGeometry width="160" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="7" value="+ manageBooks()&#xa;+ approveRequests()" style="text" vertex="1" parent="5">
+      <mxGeometry y="60" width="160" height="60" as="geometry" />
+    </mxCell>
+    
+    <mxCell id="8" value="Member" style="swimlane" vertex="1" parent="1">
+      <mxGeometry x="500" y="100" width="160" height="120" as="geometry" />
+    </mxCell>
+    <mxCell id="9" value="+ membershipID: String" style="text" vertex="1" parent="8">
+      <mxGeometry width="160" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="10" value="+ borrowBook()&#xa;+ returnBook()" style="text" vertex="1" parent="8">
+      <mxGeometry y="60" width="160" height="60" as="geometry" />
+    </mxCell>
+    
+    <mxCell id="11" value="Book" style="swimlane" vertex="1" parent="1">
+      <mxGeometry x="700" y="100" width="160" height="120" as="geometry" />
+    </mxCell>
+    <mxCell id="12" value="+ bookID: String&#xa;+ title: String&#xa;+ author: String&#xa;+ category: String&#xa;+ availability: Boolean" style="text" vertex="1" parent="11">
+      <mxGeometry width="160" height="80" as="geometry" />
+    </mxCell>
+    <mxCell id="13" value="+ checkAvailability()" style="text" vertex="1" parent="11">
+      <mxGeometry y="80" width="160" height="40" as="geometry" />
+    </mxCell>
+    
+    <mxCell id="14" value="SearchEngine" style="swimlane" vertex="1" parent="1">
+      <mxGeometry x="900" y="100" width="160" height="120" as="geometry" />
+    </mxCell>
+    <mxCell id="15" value="+ searchByTitle()&#xa;+ searchByAuthor()&#xa;+ searchByCategory()" style="text" vertex="1" parent="14">
+      <mxGeometry width="160" height="80" as="geometry" />
+    </mxCell>
+    
+    <mxCell id="16" edge="1" parent="1" source="2" target="5" value="&lt;&lt;inherits&gt;&gt;" style="edgeStyle=elbowEdgeStyle;rounded=1;"> 
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="17" edge="1" parent="1" source="2" target="8" value="&lt;&lt;inherits&gt;&gt;" style="edgeStyle=elbowEdgeStyle;rounded=1;"> 
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="18" edge="1" parent="1" source="8" target="11" value="borrows" style="edgeStyle=elbowEdgeStyle;rounded=1;"> 
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="19" edge="1" parent="1" source="5" target="11" value="manages" style="edgeStyle=elbowEdgeStyle;rounded=1;"> 
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="20" edge="1" parent="1" source="14" target="11" value="searches" style="edgeStyle=elbowEdgeStyle;rounded=1;"> 
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+  </root>
+</mxGraphModel>
