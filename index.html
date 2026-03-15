@@ -14,6 +14,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="styles.css">
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
 </head>
 
 <body>
@@ -61,240 +66,46 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="hero main-hero">
-        <div class="hero-bg-wrapper">
-            <img src="https://cdn.prod.website-files.com/66717cfe87eb0d5d7588fb9b/66717cfe87eb0d5d7588fc5f_Gradient%20Wallpapers.svg"
-                loading="lazy" alt="Gradient background 1" class="hero_bg1">
-            <img src="https://cdn.prod.website-files.com/66717cfe87eb0d5d7588fb9b/66717cfe87eb0d5d7588fc6b_Ellipse%20609.svg"
-                loading="lazy" alt="Orange ellipse shadow icon" class="hero_bg2">
-        </div>
-        <div class="hero-bg-wrapper mirrored">
-            <img src="https://cdn.prod.website-files.com/66717cfe87eb0d5d7588fb9b/66717cfe87eb0d5d7588fc5f_Gradient%20Wallpapers.svg"
-                loading="lazy" alt="Gradient background 1" class="hero_bg1">
-            <img src="https://cdn.prod.website-files.com/66717cfe87eb0d5d7588fb9b/66717cfe87eb0d5d7588fc6b_Ellipse%20609.svg"
-                loading="lazy" alt="Orange ellipse shadow icon" class="hero_bg2">
-        </div>
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1 class="hero-title">Marktleider in <br>B2C leadgeneratie.</h1>
-                <p class="hero-subtitle">Meer klanten, meer winst. Warme leads die zitten te wachten op jouw
-                    telefoontje, niet op die van je concurrent.</p>
-                <div class="hero-cta-group">
-                    <a href="#" class="btn btn-primary btn-large">Start zonder risico</a>
-                    <a href="#" class="btn btn-secondary btn-large">Ontdek hoe</a>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <!-- Abstract Dashboard Visual mimicking Revolut -->
-                <div class="dashboard-mockup">
-                    <div class="mockup-header">
-                        <div class="mockup-dot"></div>
-                        <div class="mockup-dot"></div>
-                        <div class="mockup-dot"></div>
-                    </div>
-                    <div class="mockup-body">
-                        <div class="mockup-card balance-card">
-                            <span class="card-label">Nieuwe Leads</span>
-                            <h2 class="card-value">+180<span class="value-sub"> /maand</span></h2>
-                            <div class="chart-line"></div>
-                        </div>
-                        <div class="mockup-grid">
-                            <div class="mockup-card mini-card">
-                                <span class="card-label">Kosten per lead</span>
-                                <h3 class="card-value">€9.35</h3>
-                            </div>
-                            <div class="mockup-card mini-card highlight">
-                                <span class="card-label">Conversie</span>
-                                <h3 class="card-value">32%</h3>
-                            </div>
-                        </div>
+    <!-- Hero Section with GSAP Scroll Animation -->
+    <header class="hero hero-gsap" id="hero-gsap">
+        <!-- Animated Background Layers -->
+        <div class="hero-bg-layer hero-bg-image"></div>
+        <div class="hero-bg-layer hero-bg-solid"></div>
+        <div class="hero-bg-layer hero-bg-image mirrored"></div>
+
+        <!-- Initial Content (fades out on scroll) -->
+        <div class="hero-initial-content">
+            <div class="hero-content-wrapper">
+                <div class="hero-text-content">
+                    <h1 class="hero-title">Marktleider in <br>B2C leadgeneratie.</h1>
+                    <p class="hero-subtitle">Meer klanten, meer winst. Warme leads die zitten te wachten op jouw
+                        telefoontje, niet op die van je concurrent.</p>
+                    <div class="hero-cta-group">
+                        <a href="#" class="btn btn-primary btn-large">Start zonder risico</a>
+                        <a href="#" class="btn btn-secondary btn-large">Ontdek hoe</a>
                     </div>
                 </div>
             </div>
         </div>
-    </header>
 
-    <!-- Gigantische succesverhalen Section -->
-    <section class="success-stories section-spacing gradient-bg">
-        <div class="section-container split-layout align-center">
-            <div class="split-left">
-                <h2 class="section-title">Gigantische<br><span class="highlight-orange">succesverhalen</span></h2>
-                <p class="section-body">Lees alle Case Studies en ontdek de resultaten die we halen voor onze partners:
-                </p>
-                <a href="#" class="btn btn-primary btn-large mt-4"
-                    style="background-color: #f86011; color: #fff; border: none; display: inline-flex; align-items: center; gap: 8px;">Bekijk
-                    Alle Casestudies <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <polyline points="12 5 19 12 12 19"></polyline>
-                    </svg></a>
+        <!-- Final Content (fades in on scroll) -->
+        <div class="hero-final-content">
+            <div class="hero-section-header">
+                <h2 class="hero-animated-title">De alles-in-één<br>leadgeneratie partner</h2>
+                <p class="hero-animated-subtitle">Gegarandeerd rendement — met exclusieve warme leads, verkoopafspraken,
+                    en actieve opvolging.</p>
             </div>
-            <div class="split-right carousel-side">
-                <div class="carousel-track side-track" style="padding-bottom: 20px;">
-                    <!-- Card 1 -->
-                    <div class="case-study-card">
-                        <img class="img-cover"
-                            src="https://cdn.prod.website-files.com/66717cfe87eb0d5d7588fbc3/670f30894bb2a4196dc69040_Duma%20Isolaties%20%20Gigaleads%20Thumbnail.avif"
-                            alt="DUMA Isolaties">
-                        <div class="case-study-content">
-                            <div class="case-subtitle">DUMA Isolaties</div>
-                            <h3>DUMA Isolaties</h3>
-                            <p>Ontdek hoe wij maandelijks meer dan 100 kwalitatieve leads genereren voor DUMA Isolaties
-                                en hen hebben geholpen om een conversieratio van 30% op deze leads te behalen.</p>
-                            <a href="#" class="card-link">Bekijk Case Study <svg width="14" height="14"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                                    stroke-linecap="round" stroke-linejoin="round"
-                                    style="margin-left: 4px; vertical-align: middle;">
-                                    <polyline points="9 18 15 12 9 6"></polyline>
-                                </svg></a>
-                        </div>
-                    </div>
-                    <!-- Card 2 -->
-                    <div class="case-study-card">
-                        <img class="img-cover"
-                            src="https://cdn.prod.website-files.com/66717cfe87eb0d5d7588fbc3/670f2bbcfad2b4c413874226_Diamondflame%20%20Gigaleads%20Thumbnail.avif"
-                            alt="Diamond Flame">
-                        <div class="case-study-content">
-                            <div class="case-subtitle">Diamondflame</div>
-                            <h3>Diamond Flame</h3>
-                            <p>Diamondflame is dé bestemming voor sfeer in elk interieur. Zij beschouwen het huis van
-                                hun klanten als een prioriteit. Met de nieuwste sfeerhaarden en actuele interieurtrends
-                                bieden ze een compleet aanbod.</p>
-                            <a href="#" class="card-link">Bekijk Case Study <svg width="14" height="14"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                                    stroke-linecap="round" stroke-linejoin="round"
-                                    style="margin-left: 4px; vertical-align: middle;">
-                                    <polyline points="9 18 15 12 9 6"></polyline>
-                                </svg></a>
-                        </div>
-                    </div>
-                    <!-- Card 3 -->
-                    <div class="case-study-card">
-                        <img class="img-cover"
-                            src="https://cdn.prod.website-files.com/66717cfe87eb0d5d7588fbc3/670f2a6aab9b61a8b05d5ddd_Shutterkoning%20%20Gigaleads%20Thumbnail.avif"
-                            alt="Shutterkoning">
-                        <div class="case-study-content">
-                            <div class="case-subtitle">Shutterkoning</div>
-                            <h3>Shutterkoning</h3>
-                            <p>Shutterkoning is een Nederlands & Belgisch bedrijf dat zicht specialiseert op het maken
-                                van kwalitatieve, op-maat gemaakte houten shutters en jaloezieën.</p>
-                            <a href="#" class="card-link">Bekijk Case Study <svg width="14" height="14"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                                    stroke-linecap="round" stroke-linejoin="round"
-                                    style="margin-left: 4px; vertical-align: middle;">
-                                    <polyline points="9 18 15 12 9 6"></polyline>
-                                </svg></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Logo Ticker (Social Proof) -->
-    <section class="ticker-section">
-        <p class="ticker-title">Onze klanten ken je al. 1000+ bedrijven gingen je voor.</p>
-        <div class="ticker-wrapper">
-            <div class="ticker-track">
-                <div class="ticker-item"><img src="https://www.gigaleads.nl/wp-content/uploads/2025/01/bobex.webp"
-                        alt="bobex.be logo"></div>
-                <div class="ticker-item"><img
-                        src="https://www.gigaleads.nl/wp-content/uploads/2024/12/smart-nrg-logo.webp"
-                        alt="Smart-NRG logo"></div>
-                <div class="ticker-item"><img
-                        src="https://www.gigaleads.nl/wp-content/uploads/2025/01/total_energies.webp"
-                        alt="Total Energies logo"></div>
-                <div class="ticker-item"><img
-                        src="https://www.gigaleads.nl/wp-content/uploads/2025/06/Logo-CAM-Badkamers-fullblack-2048x819-1-1024x410-1.webp"
-                        alt="CAMBADKAMERS logo"></div>
-                <div class="ticker-item"><img src="https://www.gigaleads.nl/wp-content/uploads/2024/04/logo-1.webp"
-                        alt="DUMA ISOLATIES logo"></div>
-                <div class="ticker-item"><img
-                        src="https://www.gigaleads.nl/wp-content/uploads/2025/01/verandaseizoen.webp"
-                        alt="VERANDA SEIZOEN logo"></div>
-                <div class="ticker-item"><img src="https://www.gigaleads.nl/wp-content/uploads/2025/01/eigen_huis.webp"
-                        alt="Vereniging Eigen Huis logo"></div>
-                <div class="ticker-item"><img
-                        src="https://www.gigaleads.nl/wp-content/uploads/2025/04/solarfeed-leads.webp"
-                        alt="SOLAR FEED logo"></div>
-                <div class="ticker-item"><img
-                        src="https://www.gigaleads.nl/wp-content/uploads/2025/01/duurzame-jongens-leads.webp"
-                        alt="DE DUURZAME JONGENS logo"></div>
-                <div class="ticker-item"><img
-                        src="https://www.gigaleads.nl/wp-content/uploads/2025/04/theenergycombination-leads.webp"
-                        alt="TEC logo"></div>
-                <div class="ticker-item"><img src="https://www.gigaleads.nl/wp-content/uploads/2025/01/warmteshop.webp"
-                        alt="Warmteshop logo"></div>
-                <div class="ticker-item"><img src="https://www.gigaleads.nl/wp-content/uploads/2025/01/wetaxus.webp"
-                        alt="Wetaxus logo"></div>
-                <div class="ticker-item"><img
-                        src="https://www.gigaleads.nl/wp-content/uploads/2025/04/dakisoleren-leads.webp"
-                        alt="DAKISOLEREN.NL logo"></div>
-                <div class="ticker-item"><img
-                        src="https://www.gigaleads.nl/wp-content/uploads/2025/04/trustautolease-leads.webp"
-                        alt="Trustautolease logo"></div>
-                <div class="ticker-item"><img src="https://www.gigaleads.nl/wp-content/uploads/2025/01/alarm-leads.webp"
-                        alt="ALARM.COM logo"></div>
-                <!-- Duplicate for infinite scroll -->
-                <div class="ticker-item"><img src="https://www.gigaleads.nl/wp-content/uploads/2025/01/bobex.webp"
-                        alt="bobex.be logo"></div>
-                <div class="ticker-item"><img
-                        src="https://www.gigaleads.nl/wp-content/uploads/2024/12/smart-nrg-logo.webp"
-                        alt="Smart-NRG logo"></div>
-                <div class="ticker-item"><img
-                        src="https://www.gigaleads.nl/wp-content/uploads/2025/01/total_energies.webp"
-                        alt="Total Energies logo"></div>
-                <div class="ticker-item"><img
-                        src="https://www.gigaleads.nl/wp-content/uploads/2025/06/Logo-CAM-Badkamers-fullblack-2048x819-1-1024x410-1.webp"
-                        alt="CAMBADKAMERS logo"></div>
-                <div class="ticker-item"><img src="https://www.gigaleads.nl/wp-content/uploads/2024/04/logo-1.webp"
-                        alt="DUMA ISOLATIES logo"></div>
-                <div class="ticker-item"><img
-                        src="https://www.gigaleads.nl/wp-content/uploads/2025/01/verandaseizoen.webp"
-                        alt="VERANDA SEIZOEN logo"></div>
-                <div class="ticker-item"><img src="https://www.gigaleads.nl/wp-content/uploads/2025/01/eigen_huis.webp"
-                        alt="Vereniging Eigen Huis logo"></div>
-                <div class="ticker-item"><img
-                        src="https://www.gigaleads.nl/wp-content/uploads/2025/04/solarfeed-leads.webp"
-                        alt="SOLAR FEED logo"></div>
-                <div class="ticker-item"><img
-                        src="https://www.gigaleads.nl/wp-content/uploads/2025/01/duurzame-jongens-leads.webp"
-                        alt="DE DUURZAME JONGENS logo"></div>
-                <div class="ticker-item"><img
-                        src="https://www.gigaleads.nl/wp-content/uploads/2025/04/theenergycombination-leads.webp"
-                        alt="TEC logo"></div>
-                <div class="ticker-item"><img src="https://www.gigaleads.nl/wp-content/uploads/2025/01/warmteshop.webp"
-                        alt="Warmteshop logo"></div>
-                <div class="ticker-item"><img src="https://www.gigaleads.nl/wp-content/uploads/2025/01/wetaxus.webp"
-                        alt="Wetaxus logo"></div>
-                <div class="ticker-item"><img
-                        src="https://www.gigaleads.nl/wp-content/uploads/2025/04/dakisoleren-leads.webp"
-                        alt="DAKISOLEREN.NL logo"></div>
-                <div class="ticker-item"><img
-                        src="https://www.gigaleads.nl/wp-content/uploads/2025/04/trustautolease-leads.webp"
-                        alt="Trustautolease logo"></div>
-                <div class="ticker-item"><img src="https://www.gigaleads.nl/wp-content/uploads/2025/01/alarm-leads.webp"
-                        alt="ALARM.COM logo"></div>
-            </div>
-        </div>
-    </section>
-    <!-- 1. The all-in-one business account -->
-    <section class="all-in-one section-spacing">
-        <div class="section-container">
-            <h2 class="section-title text-center">De alles-in-één leadgeneratie partner</h2>
-            <p class="section-subtitle text-center desktop-only">Gegarandeerd rendement — met exclusieve warme leads,
-                verkoopafspraken, en actieve opvolging.</p>
-
-            <div class="carousel-container">
-                <div class="carousel-track">
-                    <div class="carousel-card">
-                        <div class="card-text">
+            <!-- Animated Cards Container -->
+            <div class="hero-cards-container">
+                <div class="hero-cards-track">
+                    <!-- Card 1: Exclusieve warme leads -->
+                    <div class="hero-animated-card card-1">
+                        <div class="hero-card-content">
                             <h3>Exclusieve warme leads</h3>
-                            <p class="card-desc mt-2">Krijg toegang tot leads die specifiek voor jouw aanbod hebben
-                                gekozen.</p>
+                            <p>Krijg toegang tot leads die specifiek voor jouw aanbod hebben gekozen.</p>
                         </div>
-                        <svg class="card-svg" viewBox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="hero-card-svg" viewBox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect x="20" y="40" width="120" height="75" rx="12" fill="rgba(255,255,255,0.02)"
                                 stroke="rgba(255,255,255,0.08)" stroke-width="2" transform="rotate(-8 20 40)" />
                             <rect x="50" y="60" width="120" height="75" rx="12" fill="rgba(20,20,25,0.9)"
@@ -306,27 +117,29 @@
                                 stroke-linecap="round" />
                         </svg>
                     </div>
-                    <div class="carousel-card active-card">
-                        <div class="card-text">
+
+                    <!-- Card 2: Vooraf ingeplande afspraken -->
+                    <div class="hero-animated-card card-2 active">
+                        <div class="hero-card-content">
                             <h3>Vooraf ingeplande afspraken</h3>
-                            <p class="card-desc mt-2">Wij plannen direct in je agenda, zodat jij je kunt focussen op
-                                verkoop.</p>
-                            <div class="card-mini-stat">
-                                <span class="stat-val">€9.35</span>
-                                <span class="stat-lbl">Kosten per lead</span>
-                                <div class="progress-bar">
-                                    <div class="progress-fill"></div>
+                            <p>Wij plannen direct in je agenda, zodat jij je kunt focussen op verkoop.</p>
+                            <div class="hero-card-stat">
+                                <span class="stat-value">€9.35</span>
+                                <span class="stat-label">Kosten per lead</span>
+                                <div class="hero-progress-bar">
+                                    <div class="hero-progress-fill"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="carousel-card">
-                        <div class="card-text">
+
+                    <!-- Card 3: Actieve opvolging -->
+                    <div class="hero-animated-card card-3">
+                        <div class="hero-card-content">
                             <h3>Actieve opvolging</h3>
-                            <p class="card-desc mt-2">Razendsnelle en consistente opvolging van elke kans via onze
-                                experts.</p>
+                            <p>Razendsnelle en consistente opvolging van elke kans via onze experts.</p>
                         </div>
-                        <svg class="card-svg" viewBox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="hero-card-svg" viewBox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect x="60" y="20" width="80" height="150" rx="14" fill="rgba(20,20,25,0.85)"
                                 stroke="rgba(255,255,255,0.1)" stroke-width="2" />
                             <rect x="70" y="30" width="60" height="40" rx="6" fill="rgba(0,102,255,0.08)" />
@@ -339,114 +152,13 @@
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- 2. Automate your spend, end-to-end -->
-    <section class="automate-spend section-spacing gradient-bg">
-        <div class="section-container split-layout">
-            <div class="split-left">
-                <h2 class="section-title">Automatiseer je sales, end-to-end</h2>
-                <p class="section-body">Bespaar wekelijks uren tijd doordat wij het zware werk uit handen nemen. Kosten
-                    kunnen variëren afhankelijk van het pakket.</p>
-                <ul class="revolut-list">
-                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f86011" stroke-width="3"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg> Wij bellen de leads direct na</li>
-                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f86011" stroke-width="3"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg> Wij maken in overleg prijsoffertes op</li>
-                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f86011" stroke-width="3"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg> Snelle opvolging via onze app</li>
-                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f86011" stroke-width="3"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg> Ontzorging van A tot Z</li>
-                </ul>
-                <a href="#" class="btn btn-secondary btn-large mt-4">Ontdek de tools</a>
-            </div>
-            <div class="split-right carousel-side">
-                <div class="carousel-track side-track">
-                    <div class="side-card">
-                        <h3>Ingebouwde opvolg app</h3>
-                        <span class="card-link" style="display: inline-flex; align-items: center; gap: 6px;">App <svg
-                                width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="9 18 15 12 9 6"></polyline>
-                            </svg></span>
-                        <svg class="card-full-svg" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="50" y="20" width="200" height="350" rx="24" fill="var(--bg-card)"
-                                stroke="rgba(255,255,255,0.05)" stroke-width="2" />
-                            <rect x="70" y="50" width="160" height="120" rx="12" fill="rgba(248,96,17,0.05)"
-                                stroke="rgba(248,96,17,0.1)" stroke-width="1" />
-                            <path d="M70 140 L 100 110 L 140 130 L 190 80 L 230 110" stroke="#f86011" stroke-width="3"
-                                stroke-linecap="round" />
-                            <circle cx="190" cy="80" r="6" fill="#1c1d21" stroke="#f86011" stroke-width="3" />
-                            <circle cx="100" cy="110" r="4" fill="#1c1d21" stroke="#f86011" stroke-width="2" />
-                            <circle cx="140" cy="130" r="4" fill="#1c1d21" stroke="#f86011" stroke-width="2" />
-                            <rect x="70" y="190" width="160" height="12" rx="6" fill="rgba(255,255,255,0.05)" />
-                            <rect x="70" y="220" width="120" height="12" rx="6" fill="rgba(255,255,255,0.05)" />
-                            <rect x="70" y="250" width="140" height="12" rx="6" fill="rgba(255,255,255,0.05)" />
-                            <!-- Faded mask over bottom -->
-                            <rect x="50" y="200" width="200" height="100" fill="url(#fadeGradient)" />
-                            <defs>
-                                <linearGradient id="fadeGradient" x1="0" y1="200" x2="0" y2="300"
-                                    gradientUnits="userSpaceOnUse">
-                                    <stop offset="0" stop-color="var(--bg-card)" stop-opacity="0" />
-                                    <stop offset="1" stop-color="var(--bg-card)" stop-opacity="1" />
-                                </linearGradient>
-                            </defs>
-                        </svg>
-                    </div>
-                    <div class="side-card text-only">
-                        <h3>Real-time rapportages</h3>
-                        <span class="card-link">Inzichten <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="9 18 15 12 9 6"></polyline>
-                            </svg></span>
-                        <div class="expense-mock">
-                            <div class="ex-item">
-                                <div class="ex-icon">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
-                                        <polyline points="17 6 23 6 23 12"></polyline>
-                                    </svg>
-                                </div>
-                                <div class="ex-details">
-                                    <strong>Conversie ratio</strong>
-                                    <span>32% Stijging</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    </header>
 
     <!-- 3. More than just the essentials -->
-    <section class="more-essentials section-spacing">
+    <section class="more-essentials section-spacing" id="meer-dan-basis">
         <div class="section-container split-layout align-center">
-            <div class="split-left img-wrapper">
-                <div class="iphone-3d-container">
-                    <div class="iphone-mockup">
-                        <div class="iphone-frame">
-                            <div class="iphone-screen">
-                                <img src="dashboard.png" alt="Gigaleads Dashboard Mockup" class="dashboard-img">
-                            </div>
-                            <div class="iphone-notch"></div>
-                            <div class="iphone-button volume-up"></div>
-                            <div class="iphone-button volume-down"></div>
-                            <div class="iphone-button silent-switch"></div>
-                            <div class="iphone-button power"></div>
-                        </div>
-                    </div>
-                    <div class="iphone-shadow"></div>
-                </div>
+            <div class="split-left">
+                <img src="image.webp" alt="Gigaleads Features" class="section-image">
             </div>
             <div class="split-right text-pl">
                 <h2 class="section-title">Meer dan alleen de basis</h2>
@@ -479,29 +191,73 @@
         </div>
     </section>
 
-    <!-- 4. Testimonial Hero -->
-    <section class="testimonial-hero section-spacing">
-        <div class="section-container">
-            <div class="testimonial-card centered-testimonial">
-                <div class="test-content">
-                    <div class="test-logo">Solution Afbouw Group</div>
-                    <p class="test-author">Mike Jan, Eigenaar • Solution Afbouw Group</p>
-                    <h3 class="test-quote">"Gigaleads is cruciaal voor onze groei, het biedt ons de flexibiliteit en
-                        snelheid die we nodig hebben om naadloos op te schalen."</h3>
-                    <a href="#" class="link-arrow mt-4"
-                        style="display: inline-flex; align-items: center; gap: 8px;">Bekijk alle succesverhalen <svg
-                            width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                            <polyline points="12 5 19 12 12 19"></polyline>
-                        </svg></a>
-                </div>
+    <!-- Revolut-style Animated Storytelling Section -->
+    <section class="storytelling-section" id="storytelling">
+        <!-- Panel 1: Boekhouders -->
+        <div class="story-panel active" data-panel="boekhouders">
+            <div class="story-panel-bg">
+                <img src="https://www.gigaleads.nl/wp-content/uploads/2025/01/employees-who-work-with-a-lot-of-documents-searchi-2025-01-07-19-38-53-utc-1.webp"
+                    alt="Boekhouders">
+            </div>
+            <div class="story-panel-overlay"></div>
+            <div class="story-panel-content">
+                <span class="story-panel-category">Boekhouders</span>
+                <h2 class="story-panel-title">Warme & Unieke Leads voor Boekhouders</h2>
+                <p class="story-panel-text">Ben jij als boekhouder of accountantskantoor op zoek naar nieuwe klanten in
+                    Nederland? Dan ben je bij Gigaleads aan het juiste adres; wij zijn dé leadgeneratiespecialist in de
+                    boekhoudsector. Ontdek op deze pagina waarom onze boekhouder leads jouw praktijk laten groeien!</p>
+                <a href="#sectoren" class="story-panel-cta">Alle sectoren bekijken</a>
+            </div>
+        </div>
+
+        <!-- Panel 2: Zonnepanelen -->
+        <div class="story-panel" data-panel="zonnepanelen">
+            <div class="story-panel-bg">
+                <img src="https://www.gigaleads.nl/wp-content/uploads/2025/01/66c9113271ca81af2436f5ba_solarpannel-1.avif"
+                    alt="Zonnepanelen">
+            </div>
+            <div class="story-panel-overlay"></div>
+            <div class="story-panel-content">
+                <span class="story-panel-category">Zonnepanelen</span>
+                <h2 class="story-panel-title">Warme & Unieke Leads voor Zonnepanelen</h2>
+                <p class="story-panel-text">Is jouw bedrijf dag in, dag uit bezig met het verkopen en plaatsen van
+                    zonnepanelen in Nederland en/of België? Dan ben je bij Gigaleads aan het juiste adres; wij zijn dé
+                    leadgeneratiespecialist in de zonnepanelensector. Ontdek op deze pagina waarom onze zonnepaneel
+                    leads de beste zijn!</p>
+                <a href="#sectoren" class="story-panel-cta">Alle sectoren bekijken</a>
+            </div>
+        </div>
+
+        <!-- Panel 3: Autolease -->
+        <div class="story-panel" data-panel="autolease">
+            <div class="story-panel-bg">
+                <img src="https://www.gigaleads.nl/wp-content/uploads/2025/01/dsc07210-2-2023-11-27-05-28-05-utc.webp"
+                    alt="Autolease">
+            </div>
+            <div class="story-panel-overlay"></div>
+            <div class="story-panel-content">
+                <span class="story-panel-category">Autolease</span>
+                <h2 class="story-panel-title">Warme & Unieke Leads voor Autolease</h2>
+                <p class="story-panel-text">Is jouw bedrijf actief in de autolease sector en op zoek naar nieuwe klanten
+                    in Nederland en/of België? Dan ben je bij Gigaleads aan het juiste adres; wij zijn dé
+                    leadgeneratiespecialist in de autolease branche. Ontdek op deze pagina waarom onze leads voor
+                    autolease de beste keuze zijn voor jouw bedrijf!</p>
+                <a href="#sectoren" class="story-panel-cta">Alle sectoren bekijken</a>
+            </div>
+        </div>
+
+        <!-- Progress indicators -->
+        <div class="story-panel-progress">
+            <div class="story-progress-track">
+                <div class="story-progress-indicator active" data-index="0"></div>
+                <div class="story-progress-indicator" data-index="1"></div>
+                <div class="story-progress-indicator" data-index="2"></div>
             </div>
         </div>
     </section>
 
     <!-- 5. Onze unieke service (Webflow extracted) -->
-    <section class="unique-service section-spacing gradient-bg">
+    <section class="unique-service section-spacing" id="unieke-service">
         <div class="section-container">
             <h2 class="section-title text-center">Onze unieke service uitgelegd</h2>
             <p class="section-subtitle text-center desktop-only">Bij Gigaleads helpen we sales teams aan kwalitatieve en
@@ -556,6 +312,132 @@
         </div>
     </section>
 
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="section-container">
+            <h2 class="section-title">Alles wat je nodig hebt om te groeien.</h2>
+            <div class="features-grid">
+
+                <div class="feature-card large">
+                    <div class="feature-content">
+                        <h3>Nieuwe klanten, <br>zonder risico.</h3>
+                        <p>Bij Gigaleads hebben we slechts één doel: winst realiseren voor jouw bedrijf. Probeer
+                            Gigaleads één maand uit zonder enig risico; je kunt op elk moment opzeggen.</p>
+                    </div>
+                    <div class="feature-visual bg-gradient-1">
+                        <img src="1.webp" alt="Nieuwe klanten" class="feature-img">
+                        <div class="abstract-shape shape-1"></div>
+                    </div>
+                </div>
+
+                <div class="feature-card large reversed">
+                    <div class="feature-content">
+                        <h3>Kant-en-klare <br>verkoopafspraken.</h3>
+                        <p>Wij zijn een full service leadgeneratie bedrijf. Wij volgen leads telefonisch op, maken
+                            offertes op en plannen de afspraak in. Jij hoeft alleen nog maar de offerte te laten
+                            tekenen.</p>
+                    </div>
+                    <div class="feature-visual bg-gradient-2">
+                        <img src="2.webp" alt="Verkoopafspraken" class="feature-img">
+                        <div class="abstract-shape shape-2"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Gigantische succesverhalen Section (Light Themed) -->
+    <section class="success-stories section-spacing" id="succesverhalen">
+        <div class="section-container split-layout align-center">
+            <div class="split-left">
+                <h2 class="section-title">Gigantische<br><span class="highlight-orange">succesverhalen</span></h2>
+                <p class="section-body">Lees alle Case Studies en ontdek de resultaten die we halen voor onze partners:
+                </p>
+                <a href="#" class="btn btn-primary btn-large mt-4">Bekijk
+                    Alle Casestudies <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg></a>
+            </div>
+            <div class="split-right carousel-side">
+                <div class="carousel-track side-track" style="padding-bottom: 20px;">
+                    <!-- Card 1 -->
+                    <div class="case-study-card">
+                        <img class="img-cover"
+                            src="https://cdn.prod.website-files.com/66717cfe87eb0d5d7588fbc3/670f30894bb2a4196dc69040_Duma%20Isolaties%20%20Gigaleads%20Thumbnail.avif"
+                            alt="DUMA Isolaties">
+                        <div class="case-study-content">
+                            <div class="case-subtitle">DUMA Isolaties</div>
+                            <h3>DUMA Isolaties</h3>
+                            <p>Ontdek hoe wij maandelijks meer dan 100 kwalitatieve leads genereren voor DUMA Isolaties
+                                en hen hebben geholpen om een conversieratio van 30% op deze leads te behalen.</p>
+                            <a href="#" class="card-link">Bekijk Case Study <svg width="14" height="14"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    style="margin-left: 4px; vertical-align: middle;">
+                                    <polyline points="9 18 15 12 9 6"></polyline>
+                                </svg></a>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="case-study-card">
+                        <img class="img-cover"
+                            src="https://cdn.prod.website-files.com/66717cfe87eb0d5d7588fbc3/670f2bbcfad2b4c413874226_Diamondflame%20%20Gigaleads%20Thumbnail.avif"
+                            alt="Diamond Flame">
+                        <div class="case-study-content">
+                            <div class="case-subtitle">Diamondflame</div>
+                            <h3>Diamond Flame</h3>
+                            <p>Diamondflame is dé bestemming voor sfeer in elk interieur. Zij beschouwen het huis van
+                                hun klanten als een prioriteit.</p>
+                            <a href="#" class="card-link">Bekijk Case Study <svg width="14" height="14"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    style="margin-left: 4px; vertical-align: middle;">
+                                    <polyline points="9 18 15 12 9 6"></polyline>
+                                </svg></a>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="case-study-card">
+                        <img class="img-cover"
+                            src="https://cdn.prod.website-files.com/66717cfe87eb0d5d7588fbc3/670f2a6aab9b61a8b05d5ddd_Shutterkoning%20%20Gigaleads%20Thumbnail.avif"
+                            alt="Shutterkoning">
+                        <div class="case-study-content">
+                            <div class="case-subtitle">Shutterkoning</div>
+                            <h3>Shutterkoning</h3>
+                            <p>Shutterkoning is een Nederlands & Belgisch bedrijf dat zicht specialiseert op het maken
+                                van kwalitatieve shutters.</p>
+                            <a href="#" class="card-link">Bekijk Case Study <svg width="14" height="14"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    style="margin-left: 4px; vertical-align: middle;">
+                                    <polyline points="9 18 15 12 9 6"></polyline>
+                                </svg></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Hero -->
+    <section class="testimonial-hero section-spacing">
+        <div class="section-container">
+            <div class="testimonial-card centered-testimonial">
+                <div class="test-content">
+                    <div class="test-logo">Solution Afbouw Group</div>
+                    <p class="test-author">Mike Jan, Eigenaar • Solution Afbouw Group</p>
+                    <h3 class="test-quote">"Gigaleads is cruciaal voor onze groei, het biedt ons de flexibiliteit en snelheid die we nodig hebben om naadloos op te schalen."</h3>
+                    <a href="#" class="link-arrow mt-4" style="display: inline-flex; align-items: center; gap: 8px;">Bekijk alle succesverhalen <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- 6. Hoe werken wij (Split Layout) -->
     <section class="how-we-work section-spacing">
         <div class="section-container split-layout align-center">
@@ -596,39 +478,6 @@
                     <img src="how-we-work-visual.png" alt="Gigantisch Proces" class="premium-image">
                     <div class="visual-glow"></div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <div class="section-container">
-            <h2 class="section-title">Alles wat je nodig hebt om te groeien.</h2>
-            <div class="features-grid">
-
-                <div class="feature-card large">
-                    <div class="feature-content">
-                        <h3>Nieuwe klanten, <br>zonder risico.</h3>
-                        <p>Bij Gigaleads hebben we slechts één doel: winst realiseren voor jouw bedrijf. Probeer
-                            Gigaleads één maand uit zonder enig risico; je kunt op elk moment opzeggen.</p>
-                    </div>
-                    <div class="feature-visual bg-gradient-1">
-                        <div class="abstract-shape shape-1"></div>
-                    </div>
-                </div>
-
-                <div class="feature-card large reversed">
-                    <div class="feature-content">
-                        <h3>Kant-en-klare <br>verkoopafspraken.</h3>
-                        <p>Wij zijn een full service leadgeneratie bedrijf. Wij volgen leads telefonisch op, maken
-                            offertes op en plannen de afspraak in. Jij hoeft alleen nog maar de offerte te laten
-                            tekenen.</p>
-                    </div>
-                    <div class="feature-visual bg-gradient-2">
-                        <div class="abstract-shape shape-2"></div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
